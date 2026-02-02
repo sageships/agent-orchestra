@@ -257,7 +257,7 @@ function AddProjectModal({ onAdd, onClose }: { onAdd: (project: Omit<Project, 'i
 
 function App() {
   const [projects, setProjects] = useState<Project[]>(() => {
-    const saved = localStorage.getItem('agent-orchestra-projects')
+    const saved = localStorage.getItem('agent-orchestra-projects-v2')
     return saved ? JSON.parse(saved) : initialProjects
   })
   const [showAddModal, setShowAddModal] = useState(false)
@@ -265,7 +265,7 @@ function App() {
 
   const saveProjects = (newProjects: Project[]) => {
     setProjects(newProjects)
-    localStorage.setItem('agent-orchestra-projects', JSON.stringify(newProjects))
+    localStorage.setItem('agent-orchestra-projects-v2', JSON.stringify(newProjects))
   }
 
   const handleApprove = (id: string) => {
